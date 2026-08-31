@@ -10,8 +10,15 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteImport } from './routes/admin'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminCoursesRouteImport } from './routes/admin.courses'
+import { Route as AdminIndustryDemandRouteImport } from './routes/admin.industry-demand'
+import { Route as AdminReportsRouteImport } from './routes/admin.reports'
+import { Route as AdminSkillGapsRouteImport } from './routes/admin.skill-gaps'
+import { Route as AdminStudentsRouteImport } from './routes/admin.students'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
 import { Route as DashboardAssessmentRouteImport } from './routes/dashboard.assessment'
 import { Route as DashboardCareersRouteImport } from './routes/dashboard.careers'
@@ -28,6 +35,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DashboardRoute = DashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
@@ -37,6 +49,36 @@ const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminCoursesRoute = AdminCoursesRouteImport.update({
+  id: '/courses',
+  path: '/courses',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminIndustryDemandRoute = AdminIndustryDemandRouteImport.update({
+  id: '/industry-demand',
+  path: '/industry-demand',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminReportsRoute = AdminReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSkillGapsRoute = AdminSkillGapsRouteImport.update({
+  id: '/skill-gaps',
+  path: '/skill-gaps',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminStudentsRoute = AdminStudentsRouteImport.update({
+  id: '/students',
+  path: '/students',
+  getParentRoute: () => AdminRoute,
 } as any)
 const DashboardIndexRoute = DashboardIndexRouteImport.update({
   id: '/',
@@ -91,8 +133,14 @@ const DashboardTrendsRoute = DashboardTrendsRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
   '/dashboard': typeof DashboardRouteWithChildren
   '/login': typeof LoginRoute
+  '/admin/courses': typeof AdminCoursesRoute
+  '/admin/industry-demand': typeof AdminIndustryDemandRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/skill-gaps': typeof AdminSkillGapsRoute
+  '/admin/students': typeof AdminStudentsRoute
   '/dashboard/assessment': typeof DashboardAssessmentRoute
   '/dashboard/careers': typeof DashboardCareersRoute
   '/dashboard/jobs': typeof DashboardJobsRoute
@@ -102,11 +150,17 @@ export interface FileRoutesByFullPath {
   '/dashboard/skill-gap': typeof DashboardSkillGapRoute
   '/dashboard/skills': typeof DashboardSkillsRoute
   '/dashboard/trends': typeof DashboardTrendsRoute
+  '/admin/': typeof AdminIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
+  '/admin/courses': typeof AdminCoursesRoute
+  '/admin/industry-demand': typeof AdminIndustryDemandRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/skill-gaps': typeof AdminSkillGapsRoute
+  '/admin/students': typeof AdminStudentsRoute
   '/dashboard/assessment': typeof DashboardAssessmentRoute
   '/dashboard/careers': typeof DashboardCareersRoute
   '/dashboard/jobs': typeof DashboardJobsRoute
@@ -116,13 +170,20 @@ export interface FileRoutesByTo {
   '/dashboard/skill-gap': typeof DashboardSkillGapRoute
   '/dashboard/skills': typeof DashboardSkillsRoute
   '/dashboard/trends': typeof DashboardTrendsRoute
+  '/admin': typeof AdminIndexRoute
   '/dashboard': typeof DashboardIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
   '/dashboard': typeof DashboardRouteWithChildren
   '/login': typeof LoginRoute
+  '/admin/courses': typeof AdminCoursesRoute
+  '/admin/industry-demand': typeof AdminIndustryDemandRoute
+  '/admin/reports': typeof AdminReportsRoute
+  '/admin/skill-gaps': typeof AdminSkillGapsRoute
+  '/admin/students': typeof AdminStudentsRoute
   '/dashboard/assessment': typeof DashboardAssessmentRoute
   '/dashboard/careers': typeof DashboardCareersRoute
   '/dashboard/jobs': typeof DashboardJobsRoute
@@ -132,14 +193,21 @@ export interface FileRoutesById {
   '/dashboard/skill-gap': typeof DashboardSkillGapRoute
   '/dashboard/skills': typeof DashboardSkillsRoute
   '/dashboard/trends': typeof DashboardTrendsRoute
+  '/admin/': typeof AdminIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin'
     | '/dashboard'
     | '/login'
+    | '/admin/courses'
+    | '/admin/industry-demand'
+    | '/admin/reports'
+    | '/admin/skill-gaps'
+    | '/admin/students'
     | '/dashboard/assessment'
     | '/dashboard/careers'
     | '/dashboard/jobs'
@@ -149,11 +217,17 @@ export interface FileRouteTypes {
     | '/dashboard/skill-gap'
     | '/dashboard/skills'
     | '/dashboard/trends'
+    | '/admin/'
     | '/dashboard/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/login'
+    | '/admin/courses'
+    | '/admin/industry-demand'
+    | '/admin/reports'
+    | '/admin/skill-gaps'
+    | '/admin/students'
     | '/dashboard/assessment'
     | '/dashboard/careers'
     | '/dashboard/jobs'
@@ -163,12 +237,19 @@ export interface FileRouteTypes {
     | '/dashboard/skill-gap'
     | '/dashboard/skills'
     | '/dashboard/trends'
+    | '/admin'
     | '/dashboard'
   id:
     | '__root__'
     | '/'
+    | '/admin'
     | '/dashboard'
     | '/login'
+    | '/admin/courses'
+    | '/admin/industry-demand'
+    | '/admin/reports'
+    | '/admin/skill-gaps'
+    | '/admin/students'
     | '/dashboard/assessment'
     | '/dashboard/careers'
     | '/dashboard/jobs'
@@ -178,11 +259,13 @@ export interface FileRouteTypes {
     | '/dashboard/skill-gap'
     | '/dashboard/skills'
     | '/dashboard/trends'
+    | '/admin/'
     | '/dashboard/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRouteWithChildren
   DashboardRoute: typeof DashboardRouteWithChildren
   LoginRoute: typeof LoginRoute
 }
@@ -194,6 +277,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashboard': {
@@ -209,6 +299,48 @@ declare module '@tanstack/react-router' {
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/courses': {
+      id: '/admin/courses'
+      path: '/courses'
+      fullPath: '/admin/courses'
+      preLoaderRoute: typeof AdminCoursesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/industry-demand': {
+      id: '/admin/industry-demand'
+      path: '/industry-demand'
+      fullPath: '/admin/industry-demand'
+      preLoaderRoute: typeof AdminIndustryDemandRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/reports': {
+      id: '/admin/reports'
+      path: '/reports'
+      fullPath: '/admin/reports'
+      preLoaderRoute: typeof AdminReportsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/skill-gaps': {
+      id: '/admin/skill-gaps'
+      path: '/skill-gaps'
+      fullPath: '/admin/skill-gaps'
+      preLoaderRoute: typeof AdminSkillGapsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/students': {
+      id: '/admin/students'
+      path: '/students'
+      fullPath: '/admin/students'
+      preLoaderRoute: typeof AdminStudentsRouteImport
+      parentRoute: typeof AdminRoute
     }
     '/dashboard/': {
       id: '/dashboard/'
@@ -283,6 +415,26 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AdminRouteChildren {
+  AdminCoursesRoute: typeof AdminCoursesRoute
+  AdminIndustryDemandRoute: typeof AdminIndustryDemandRoute
+  AdminReportsRoute: typeof AdminReportsRoute
+  AdminSkillGapsRoute: typeof AdminSkillGapsRoute
+  AdminStudentsRoute: typeof AdminStudentsRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminCoursesRoute: AdminCoursesRoute,
+  AdminIndustryDemandRoute: AdminIndustryDemandRoute,
+  AdminReportsRoute: AdminReportsRoute,
+  AdminSkillGapsRoute: AdminSkillGapsRoute,
+  AdminStudentsRoute: AdminStudentsRoute,
+  AdminIndexRoute: AdminIndexRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
 interface DashboardRouteChildren {
   DashboardAssessmentRoute: typeof DashboardAssessmentRoute
   DashboardCareersRoute: typeof DashboardCareersRoute
@@ -315,6 +467,7 @@ const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRouteWithChildren,
   DashboardRoute: DashboardRouteWithChildren,
   LoginRoute: LoginRoute,
 }
