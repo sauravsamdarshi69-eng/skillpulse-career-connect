@@ -14,6 +14,7 @@ import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
 import { Route as DashboardAssessmentRouteImport } from './routes/dashboard.assessment'
+import { Route as DashboardJobsRouteImport } from './routes/dashboard.jobs'
 import { Route as DashboardLearningPathRouteImport } from './routes/dashboard.learning-path'
 import { Route as DashboardSkillGapRouteImport } from './routes/dashboard.skill-gap'
 import { Route as DashboardSkillsRouteImport } from './routes/dashboard.skills'
@@ -43,6 +44,11 @@ const DashboardAssessmentRoute = DashboardAssessmentRouteImport.update({
   path: '/assessment',
   getParentRoute: () => DashboardRoute,
 } as any)
+const DashboardJobsRoute = DashboardJobsRouteImport.update({
+  id: '/jobs',
+  path: '/jobs',
+  getParentRoute: () => DashboardRoute,
+} as any)
 const DashboardLearningPathRoute = DashboardLearningPathRouteImport.update({
   id: '/learning-path',
   path: '/learning-path',
@@ -64,6 +70,7 @@ export interface FileRoutesByFullPath {
   '/dashboard': typeof DashboardRouteWithChildren
   '/login': typeof LoginRoute
   '/dashboard/assessment': typeof DashboardAssessmentRoute
+  '/dashboard/jobs': typeof DashboardJobsRoute
   '/dashboard/learning-path': typeof DashboardLearningPathRoute
   '/dashboard/skill-gap': typeof DashboardSkillGapRoute
   '/dashboard/skills': typeof DashboardSkillsRoute
@@ -73,6 +80,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/login': typeof LoginRoute
   '/dashboard/assessment': typeof DashboardAssessmentRoute
+  '/dashboard/jobs': typeof DashboardJobsRoute
   '/dashboard/learning-path': typeof DashboardLearningPathRoute
   '/dashboard/skill-gap': typeof DashboardSkillGapRoute
   '/dashboard/skills': typeof DashboardSkillsRoute
@@ -84,6 +92,7 @@ export interface FileRoutesById {
   '/dashboard': typeof DashboardRouteWithChildren
   '/login': typeof LoginRoute
   '/dashboard/assessment': typeof DashboardAssessmentRoute
+  '/dashboard/jobs': typeof DashboardJobsRoute
   '/dashboard/learning-path': typeof DashboardLearningPathRoute
   '/dashboard/skill-gap': typeof DashboardSkillGapRoute
   '/dashboard/skills': typeof DashboardSkillsRoute
@@ -96,6 +105,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/login'
     | '/dashboard/assessment'
+    | '/dashboard/jobs'
     | '/dashboard/learning-path'
     | '/dashboard/skill-gap'
     | '/dashboard/skills'
@@ -105,6 +115,7 @@ export interface FileRouteTypes {
     | '/'
     | '/login'
     | '/dashboard/assessment'
+    | '/dashboard/jobs'
     | '/dashboard/learning-path'
     | '/dashboard/skill-gap'
     | '/dashboard/skills'
@@ -115,6 +126,7 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/login'
     | '/dashboard/assessment'
+    | '/dashboard/jobs'
     | '/dashboard/learning-path'
     | '/dashboard/skill-gap'
     | '/dashboard/skills'
@@ -164,6 +176,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardAssessmentRouteImport
       parentRoute: typeof DashboardRoute
     }
+    '/dashboard/jobs': {
+      id: '/dashboard/jobs'
+      path: '/jobs'
+      fullPath: '/dashboard/jobs'
+      preLoaderRoute: typeof DashboardJobsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
     '/dashboard/learning-path': {
       id: '/dashboard/learning-path'
       path: '/learning-path'
@@ -190,6 +209,7 @@ declare module '@tanstack/react-router' {
 
 interface DashboardRouteChildren {
   DashboardAssessmentRoute: typeof DashboardAssessmentRoute
+  DashboardJobsRoute: typeof DashboardJobsRoute
   DashboardLearningPathRoute: typeof DashboardLearningPathRoute
   DashboardSkillGapRoute: typeof DashboardSkillGapRoute
   DashboardSkillsRoute: typeof DashboardSkillsRoute
@@ -198,6 +218,7 @@ interface DashboardRouteChildren {
 
 const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardAssessmentRoute: DashboardAssessmentRoute,
+  DashboardJobsRoute: DashboardJobsRoute,
   DashboardLearningPathRoute: DashboardLearningPathRoute,
   DashboardSkillGapRoute: DashboardSkillGapRoute,
   DashboardSkillsRoute: DashboardSkillsRoute,
