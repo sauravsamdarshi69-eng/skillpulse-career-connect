@@ -58,7 +58,7 @@ function AssessmentPage() {
       let total = 0;
       for (const skill of ASSESSMENT_SKILLS) {
         const level = answers[skill];
-        const value = LEVEL_VALUES[level] ?? 0;
+        const value = LEVEL_VALUES[level ?? ""] ?? 0;
         nextSkills[skill] = value;
         total += value;
       }
@@ -137,7 +137,7 @@ function AssessmentPage() {
                     >
                       {level}
                       <span className="ml-1 text-xs opacity-70">
-                        ({LEVEL_VALUES[level]})
+                        ({LEVEL_VALUES[level] ?? 0})
                       </span>
                     </button>
                   );

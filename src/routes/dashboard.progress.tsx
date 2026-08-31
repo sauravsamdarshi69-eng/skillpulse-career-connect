@@ -18,6 +18,7 @@ import {
   SectionHeading,
   StatCard,
 } from "@/components/skillpulse/primitives";
+import { Gauge, Layers, ListChecks, Target } from "lucide-react";
 import { useStore } from "@/lib/store";
 import { buildLearningPath, coverage, jobReadiness } from "@/lib/engine";
 import { getCareer } from "@/data/careers";
@@ -65,10 +66,10 @@ function ProgressPage() {
       </DemoDataNote>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <StatCard label="Job readiness" value={`${readiness.score}%`} />
-        <StatCard label="Skill coverage" value={`${match}%`} />
-        <StatCard label="Modules completed" value={`${done}/${weeks.length}`} />
-        <StatCard label="Assessment score" value={`${student.assessmentScore}/100`} />
+        <StatCard label="Job readiness" value={`${readiness.score}%`} icon={Gauge} />
+        <StatCard label="Skill coverage" value={`${match}%`} icon={Target} />
+        <StatCard label="Modules completed" value={`${done}/${weeks.length}`} icon={ListChecks} />
+        <StatCard label="Assessment score" value={`${student.assessmentScore}/100`} icon={Layers} />
       </div>
 
       <Card>

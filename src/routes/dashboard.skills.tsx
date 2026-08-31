@@ -156,7 +156,7 @@ function MySkills() {
                     max={100}
                     step={5}
                     aria-label={`${skill} proficiency`}
-                    onValueChange={([v]) => setSkills({ [skill]: v })}
+                    onValueChange={([v]) => setSkills({ [skill]: v ?? 0 })}
                     className="max-w-md"
                   />
                   <MeterBar value={value} className="hidden flex-1 sm:block" />
