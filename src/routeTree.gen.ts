@@ -10,33 +10,181 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
+import { Route as DashboardAssessmentRouteImport } from './routes/dashboard.assessment'
+import { Route as DashboardCareersRouteImport } from './routes/dashboard.careers'
+import { Route as DashboardJobsRouteImport } from './routes/dashboard.jobs'
+import { Route as DashboardLearningPathRouteImport } from './routes/dashboard.learning-path'
+import { Route as DashboardProfileRouteImport } from './routes/dashboard.profile'
+import { Route as DashboardProgressRouteImport } from './routes/dashboard.progress'
+import { Route as DashboardSkillGapRouteImport } from './routes/dashboard.skill-gap'
+import { Route as DashboardSkillsRouteImport } from './routes/dashboard.skills'
+import { Route as DashboardTrendsRouteImport } from './routes/dashboard.trends'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardIndexRoute = DashboardIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardAssessmentRoute = DashboardAssessmentRouteImport.update({
+  id: '/assessment',
+  path: '/assessment',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardCareersRoute = DashboardCareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardJobsRoute = DashboardJobsRouteImport.update({
+  id: '/jobs',
+  path: '/jobs',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardLearningPathRoute = DashboardLearningPathRouteImport.update({
+  id: '/learning-path',
+  path: '/learning-path',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardProfileRoute = DashboardProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardProgressRoute = DashboardProgressRouteImport.update({
+  id: '/progress',
+  path: '/progress',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardSkillGapRoute = DashboardSkillGapRouteImport.update({
+  id: '/skill-gap',
+  path: '/skill-gap',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardSkillsRoute = DashboardSkillsRouteImport.update({
+  id: '/skills',
+  path: '/skills',
+  getParentRoute: () => DashboardRoute,
+} as any)
+const DashboardTrendsRoute = DashboardTrendsRouteImport.update({
+  id: '/trends',
+  path: '/trends',
+  getParentRoute: () => DashboardRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRouteWithChildren
+  '/login': typeof LoginRoute
+  '/dashboard/assessment': typeof DashboardAssessmentRoute
+  '/dashboard/careers': typeof DashboardCareersRoute
+  '/dashboard/jobs': typeof DashboardJobsRoute
+  '/dashboard/learning-path': typeof DashboardLearningPathRoute
+  '/dashboard/profile': typeof DashboardProfileRoute
+  '/dashboard/progress': typeof DashboardProgressRoute
+  '/dashboard/skill-gap': typeof DashboardSkillGapRoute
+  '/dashboard/skills': typeof DashboardSkillsRoute
+  '/dashboard/trends': typeof DashboardTrendsRoute
+  '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/login': typeof LoginRoute
+  '/dashboard/assessment': typeof DashboardAssessmentRoute
+  '/dashboard/careers': typeof DashboardCareersRoute
+  '/dashboard/jobs': typeof DashboardJobsRoute
+  '/dashboard/learning-path': typeof DashboardLearningPathRoute
+  '/dashboard/profile': typeof DashboardProfileRoute
+  '/dashboard/progress': typeof DashboardProgressRoute
+  '/dashboard/skill-gap': typeof DashboardSkillGapRoute
+  '/dashboard/skills': typeof DashboardSkillsRoute
+  '/dashboard/trends': typeof DashboardTrendsRoute
+  '/dashboard': typeof DashboardIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRouteWithChildren
+  '/login': typeof LoginRoute
+  '/dashboard/assessment': typeof DashboardAssessmentRoute
+  '/dashboard/careers': typeof DashboardCareersRoute
+  '/dashboard/jobs': typeof DashboardJobsRoute
+  '/dashboard/learning-path': typeof DashboardLearningPathRoute
+  '/dashboard/profile': typeof DashboardProfileRoute
+  '/dashboard/progress': typeof DashboardProgressRoute
+  '/dashboard/skill-gap': typeof DashboardSkillGapRoute
+  '/dashboard/skills': typeof DashboardSkillsRoute
+  '/dashboard/trends': typeof DashboardTrendsRoute
+  '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/dashboard'
+    | '/login'
+    | '/dashboard/assessment'
+    | '/dashboard/careers'
+    | '/dashboard/jobs'
+    | '/dashboard/learning-path'
+    | '/dashboard/profile'
+    | '/dashboard/progress'
+    | '/dashboard/skill-gap'
+    | '/dashboard/skills'
+    | '/dashboard/trends'
+    | '/dashboard/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/login'
+    | '/dashboard/assessment'
+    | '/dashboard/careers'
+    | '/dashboard/jobs'
+    | '/dashboard/learning-path'
+    | '/dashboard/profile'
+    | '/dashboard/progress'
+    | '/dashboard/skill-gap'
+    | '/dashboard/skills'
+    | '/dashboard/trends'
+    | '/dashboard'
+  id:
+    | '__root__'
+    | '/'
+    | '/dashboard'
+    | '/login'
+    | '/dashboard/assessment'
+    | '/dashboard/careers'
+    | '/dashboard/jobs'
+    | '/dashboard/learning-path'
+    | '/dashboard/profile'
+    | '/dashboard/progress'
+    | '/dashboard/skill-gap'
+    | '/dashboard/skills'
+    | '/dashboard/trends'
+    | '/dashboard/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DashboardRoute: typeof DashboardRouteWithChildren
+  LoginRoute: typeof LoginRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +196,127 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard/': {
+      id: '/dashboard/'
+      path: '/'
+      fullPath: '/dashboard/'
+      preLoaderRoute: typeof DashboardIndexRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/assessment': {
+      id: '/dashboard/assessment'
+      path: '/assessment'
+      fullPath: '/dashboard/assessment'
+      preLoaderRoute: typeof DashboardAssessmentRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/careers': {
+      id: '/dashboard/careers'
+      path: '/careers'
+      fullPath: '/dashboard/careers'
+      preLoaderRoute: typeof DashboardCareersRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/jobs': {
+      id: '/dashboard/jobs'
+      path: '/jobs'
+      fullPath: '/dashboard/jobs'
+      preLoaderRoute: typeof DashboardJobsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/learning-path': {
+      id: '/dashboard/learning-path'
+      path: '/learning-path'
+      fullPath: '/dashboard/learning-path'
+      preLoaderRoute: typeof DashboardLearningPathRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/profile': {
+      id: '/dashboard/profile'
+      path: '/profile'
+      fullPath: '/dashboard/profile'
+      preLoaderRoute: typeof DashboardProfileRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/progress': {
+      id: '/dashboard/progress'
+      path: '/progress'
+      fullPath: '/dashboard/progress'
+      preLoaderRoute: typeof DashboardProgressRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/skill-gap': {
+      id: '/dashboard/skill-gap'
+      path: '/skill-gap'
+      fullPath: '/dashboard/skill-gap'
+      preLoaderRoute: typeof DashboardSkillGapRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/skills': {
+      id: '/dashboard/skills'
+      path: '/skills'
+      fullPath: '/dashboard/skills'
+      preLoaderRoute: typeof DashboardSkillsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
+    '/dashboard/trends': {
+      id: '/dashboard/trends'
+      path: '/trends'
+      fullPath: '/dashboard/trends'
+      preLoaderRoute: typeof DashboardTrendsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
   }
 }
 
+interface DashboardRouteChildren {
+  DashboardAssessmentRoute: typeof DashboardAssessmentRoute
+  DashboardCareersRoute: typeof DashboardCareersRoute
+  DashboardJobsRoute: typeof DashboardJobsRoute
+  DashboardLearningPathRoute: typeof DashboardLearningPathRoute
+  DashboardProfileRoute: typeof DashboardProfileRoute
+  DashboardProgressRoute: typeof DashboardProgressRoute
+  DashboardSkillGapRoute: typeof DashboardSkillGapRoute
+  DashboardSkillsRoute: typeof DashboardSkillsRoute
+  DashboardTrendsRoute: typeof DashboardTrendsRoute
+  DashboardIndexRoute: typeof DashboardIndexRoute
+}
+
+const DashboardRouteChildren: DashboardRouteChildren = {
+  DashboardAssessmentRoute: DashboardAssessmentRoute,
+  DashboardCareersRoute: DashboardCareersRoute,
+  DashboardJobsRoute: DashboardJobsRoute,
+  DashboardLearningPathRoute: DashboardLearningPathRoute,
+  DashboardProfileRoute: DashboardProfileRoute,
+  DashboardProgressRoute: DashboardProgressRoute,
+  DashboardSkillGapRoute: DashboardSkillGapRoute,
+  DashboardSkillsRoute: DashboardSkillsRoute,
+  DashboardTrendsRoute: DashboardTrendsRoute,
+  DashboardIndexRoute: DashboardIndexRoute,
+}
+
+const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
+  DashboardRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DashboardRoute: DashboardRouteWithChildren,
+  LoginRoute: LoginRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
