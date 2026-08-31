@@ -18,6 +18,7 @@ import { Route as DashboardJobsRouteImport } from './routes/dashboard.jobs'
 import { Route as DashboardLearningPathRouteImport } from './routes/dashboard.learning-path'
 import { Route as DashboardSkillGapRouteImport } from './routes/dashboard.skill-gap'
 import { Route as DashboardSkillsRouteImport } from './routes/dashboard.skills'
+import { Route as DashboardTrendsRouteImport } from './routes/dashboard.trends'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -64,6 +65,11 @@ const DashboardSkillsRoute = DashboardSkillsRouteImport.update({
   path: '/skills',
   getParentRoute: () => DashboardRoute,
 } as any)
+const DashboardTrendsRoute = DashboardTrendsRouteImport.update({
+  id: '/trends',
+  path: '/trends',
+  getParentRoute: () => DashboardRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -74,6 +80,7 @@ export interface FileRoutesByFullPath {
   '/dashboard/learning-path': typeof DashboardLearningPathRoute
   '/dashboard/skill-gap': typeof DashboardSkillGapRoute
   '/dashboard/skills': typeof DashboardSkillsRoute
+  '/dashboard/trends': typeof DashboardTrendsRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRoutesByTo {
@@ -84,6 +91,7 @@ export interface FileRoutesByTo {
   '/dashboard/learning-path': typeof DashboardLearningPathRoute
   '/dashboard/skill-gap': typeof DashboardSkillGapRoute
   '/dashboard/skills': typeof DashboardSkillsRoute
+  '/dashboard/trends': typeof DashboardTrendsRoute
   '/dashboard': typeof DashboardIndexRoute
 }
 export interface FileRoutesById {
@@ -96,6 +104,7 @@ export interface FileRoutesById {
   '/dashboard/learning-path': typeof DashboardLearningPathRoute
   '/dashboard/skill-gap': typeof DashboardSkillGapRoute
   '/dashboard/skills': typeof DashboardSkillsRoute
+  '/dashboard/trends': typeof DashboardTrendsRoute
   '/dashboard/': typeof DashboardIndexRoute
 }
 export interface FileRouteTypes {
@@ -109,6 +118,7 @@ export interface FileRouteTypes {
     | '/dashboard/learning-path'
     | '/dashboard/skill-gap'
     | '/dashboard/skills'
+    | '/dashboard/trends'
     | '/dashboard/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -119,6 +129,7 @@ export interface FileRouteTypes {
     | '/dashboard/learning-path'
     | '/dashboard/skill-gap'
     | '/dashboard/skills'
+    | '/dashboard/trends'
     | '/dashboard'
   id:
     | '__root__'
@@ -130,6 +141,7 @@ export interface FileRouteTypes {
     | '/dashboard/learning-path'
     | '/dashboard/skill-gap'
     | '/dashboard/skills'
+    | '/dashboard/trends'
     | '/dashboard/'
   fileRoutesById: FileRoutesById
 }
@@ -204,6 +216,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardSkillsRouteImport
       parentRoute: typeof DashboardRoute
     }
+    '/dashboard/trends': {
+      id: '/dashboard/trends'
+      path: '/trends'
+      fullPath: '/dashboard/trends'
+      preLoaderRoute: typeof DashboardTrendsRouteImport
+      parentRoute: typeof DashboardRoute
+    }
   }
 }
 
@@ -213,6 +232,7 @@ interface DashboardRouteChildren {
   DashboardLearningPathRoute: typeof DashboardLearningPathRoute
   DashboardSkillGapRoute: typeof DashboardSkillGapRoute
   DashboardSkillsRoute: typeof DashboardSkillsRoute
+  DashboardTrendsRoute: typeof DashboardTrendsRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
 }
 
@@ -222,6 +242,7 @@ const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardLearningPathRoute: DashboardLearningPathRoute,
   DashboardSkillGapRoute: DashboardSkillGapRoute,
   DashboardSkillsRoute: DashboardSkillsRoute,
+  DashboardTrendsRoute: DashboardTrendsRoute,
   DashboardIndexRoute: DashboardIndexRoute,
 }
 
