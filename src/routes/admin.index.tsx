@@ -20,11 +20,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   CHART_COLORS,
+  ChartFrame,
   DemoDataNote,
   SectionHeading,
   StatCard,
 } from "@/components/skillpulse/primitives";
-import { ChartFrame } from "@/components/skillpulse/primitives";
 import { COURSES } from "@/data/courses";
 import { DEMAND_SKILLS, INDUSTRY_VS_CURRICULUM } from "@/data/industryDemand";
 import {

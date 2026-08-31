@@ -31,7 +31,7 @@ export const Route = createFileRoute("/admin/reports")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: AdminReports;
+  component: AdminReports,
 });
 
 function AdminReports() {
