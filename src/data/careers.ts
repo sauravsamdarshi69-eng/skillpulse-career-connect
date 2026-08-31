@@ -86,5 +86,5 @@ export const CAREER_MAP: Record<string, Career> = Object.fromEntries(
 );
 
 export function getCareer(title: string): Career {
-  return CAREER_MAP[title] ?? CAREERS[0];
+  return CAREER_MAP[title] ?? (CAREERS[0] as Career);
 }
