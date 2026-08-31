@@ -203,7 +203,7 @@ export function recommendationText(
       "Focus on portfolio projects and interview preparation next.",
     ];
   }
-  const [top, second, third] = gaps;
+  const [top, second, third] = gaps as [GapRow, GapRow?, GapRow?];
   const lines = [`Your highest priority skill is ${top.skill}.`];
   if (second) {
     const others = third ? `${second.skill} and ${third.skill}` : second.skill;
